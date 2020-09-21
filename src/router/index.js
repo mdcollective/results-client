@@ -1,14 +1,37 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Leagues from "../components/League/Leagues.vue";
+import Seasons from "../components/League/Seasons.vue";
+import Races from "../components/League/Races.vue";
+import Results from "../components/League/Results.vue";
+import Result from "../components/League/Result.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Leagues",
+    component: Leagues
+  },
+  {
+    path: "/seasons",
+    name: "Seasons",
+    component: Seasons
+  },
+  {
+    path: "/races",
+    name: "Races",
+    component: Races
+  },
+  {
+    path: "/results",
+    name: "Results",
+    component: Results
+  },
+  {
+    path: "/result",
+    name: "Result",
+    component: Result
   },
   {
     path: "/about",
@@ -17,7 +40,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import( /* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
 
