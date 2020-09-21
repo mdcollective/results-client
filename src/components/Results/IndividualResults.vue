@@ -12,7 +12,7 @@
         </thead>
         <tbody>
           <tr v-for="result in results" :key="result.RacerId">
-            <td>x</td>
+            <td>1</td>
             <td>{{ result.LastName }}, {{ result.FirstName }}</td>
             <td>{{ result.Time }}</td>
             <td>{{ result.RacerPoints }}</td>
