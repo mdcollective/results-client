@@ -3,15 +3,17 @@
     <v-row class="text-center" align="center">
       <v-col class="text-center">
         <PageHeading title="Results" origin="races" />
-        <div v-for="result in results" :key="result.id">
-          <v-btn
-            text
-            large
-            :block="true"
-            :outlined="true"
-            @click="resultClicked(result)"
-            >{{ result.name }}</v-btn
-          >
+        <div class="results-grid">
+          <div v-for="result in results" :key="result.id">
+            <v-btn
+              class="result-btn"
+              text
+              large
+              :block="true"
+              :outlined="true"
+              @click="resultClicked(result)"
+            >{{ result.name }}</v-btn>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -28,40 +30,17 @@ export default {
     PageHeading
   },
   computed: {
-    ...mapGetters(["results", "selectedRace"])
+    ...mapGetters(["results"])
   },
   methods: {
     resultClicked: function(result) {
-      console.log(result);
       this.setSelectedResult(result);
-
-      const type = result.type.toLowerCase();
-      if (type === "individualresults") {
-        console.log(result);
-        this.getIndividualResults({
-          raceId: this.selectedRace.Id,
-          gender: result.gender,
-          discipline: result.discipline
-        });
-      } else if (type === "agegroupresults") {
-        this.getAgeGroupResults({
-          raceId: this.selectedRace.Id,
-          gender: result.gender,
-          discipline: result.discipline
-        });
-      } else if (type === "teamresults") {
-        this.getTeamResults(this.selectedRace.Id);
-      } else {
-        console.log("error");
-      }
-
+      this.getResults(result);
       this.$router.push("/result");
     },
     ...mapActions([
-      "setSelectedResult",
-      "getIndividualResults",
-      "getAgeGroupResults",
-      "getTeamResults"
+      "getResults",
+      "setSelectedResult"
     ])
   }
 };
@@ -70,5 +49,19 @@ export default {
 <style lang="scss" scoped>
 .results-container {
   margin-bottom: 50px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.result-btn {
+  border: 1px solid black;
+  min-height: 100px;
+  // padding: 0 0 !important;
+  margin: 0;
+  word-wrap: normal;
 }
 </style>

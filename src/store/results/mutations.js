@@ -7,6 +7,12 @@ const mutations = {
   },
   SET_TEAM_RESULTS(state, results) {
     state.teamResults = results;
+  },
+  SET_OVERALL_INDIVIDUAL_RESULTS(state, results) {
+    state.overallIndividualResults = results;
+  },
+  SET_OVERALL_TEAM_RESULTS(state, results) {
+    state.overallTeamResults = results;
   }
 };
 

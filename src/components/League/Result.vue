@@ -10,6 +10,9 @@ import PageHeading from "../Layout/PageHeading";
 import IndividualResults from "../Results/IndividualResults";
 import AgeGroupResults from "../Results/AgeGroupResults";
 import TeamResults from "../Results/TeamResults";
+import OverallTeamResults from "../Results/OverallTeamResults";
+import OverallIndividualResults from "../Results/OverallIndividualResults";
+
 import { mapGetters } from "vuex";
 
 export default {
@@ -18,7 +21,9 @@ export default {
     PageHeading,
     IndividualResults,
     AgeGroupResults,
-    TeamResults
+    TeamResults,
+    OverallTeamResults,
+    OverallIndividualResults
   },
   computed: {
     ...mapGetters(["selectedResult"])
