@@ -52,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 .page-heading {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
 }
 .back-nav {
   display: flex;

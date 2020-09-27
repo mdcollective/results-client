@@ -1,6 +1,6 @@
 <template>
   <v-container class="result-container">
-    <PageHeading title="Result" origin="results" />
+    <PageHeading :title="selectedResult.name" origin="results" />
     <component :is="selectedResult.type"></component>
   </v-container>
 </template>
