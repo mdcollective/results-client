@@ -3,15 +3,14 @@
     <v-row class="text-center" align="center">
       <v-col class="text-center">
         <PageHeading title="Seasons" origin="/" />
-        <div v-for="season in selectedSeasons" :key="season.Id">
+        <div v-for="season in selectedSeasons" :key="season.id">
           <v-btn
             text
             large
             :block="true"
             :outlined="true"
             @click="seasonClicked(season)"
-            >{{ season.Name }}</v-btn
-          >
+          >{{ season.name }}</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -33,7 +32,7 @@ export default {
   methods: {
     seasonClicked: function(season) {
       this.setSelectedSeason(season);
-      this.setSelectedRaces(season.Races);
+      this.setSelectedRaces(season.races);
       this.$router.push("/races");
     },
     ...mapActions(["setSelectedSeason", "setSelectedRaces"])

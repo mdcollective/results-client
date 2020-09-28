@@ -4,24 +4,18 @@
       <v-col class="text-center">
         <PageHeading title="Leagues" />
         <div v-if="leagues.length > 0">
-          <div v-for="league in leagues" :key="league.Id">
+          <div v-for="league in leagues" :key="league.id">
             <v-btn
               text
               large
               :block="true"
               :outlined="true"
               @click="leagueClicked(league)"
-              >{{ league.Name }}</v-btn
-            >
+            >{{ league.name }}</v-btn>
           </div>
         </div>
         <div v-if="leagues.length === 0" class="progress">
-          <v-progress-circular
-            class="progress-spinner"
-            size="64"
-            indeterminate
-            color="primary"
-          ></v-progress-circular>
+          <v-progress-circular class="progress-spinner" size="64" indeterminate color="primary"></v-progress-circular>
         </div>
       </v-col>
     </v-row>
@@ -42,8 +36,9 @@ export default {
   },
   methods: {
     leagueClicked: function(league) {
+      console.log(league);
       this.setSelectedLeague(league);
-      this.setSelectedSeasons(league.Seasons);
+      this.setSelectedSeasons(league.seasons);
       this.$router.push("/seasons");
     },
     ...mapActions(["setSelectedLeague", "setSelectedSeasons", "getLeagues"])

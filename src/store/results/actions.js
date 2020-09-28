@@ -62,23 +62,23 @@ const actions = {
     if (type === "individualresults") {
       console.log(result);
       dispatch("getIndividualResults", {
-        raceId: getters.selectedRace.Id,
+        raceId: getters.selectedRace.id,
         gender: result.gender,
         discipline: result.discipline
       });
     } else if (type === "agegroupresults") {
       dispatch("getAgeGroupResults", {
-        raceId: getters.selectedRace.Id,
+        raceId: getters.selectedRace.id,
         gender: result.gender,
         discipline: result.discipline
       });
     } else if (type === "teamresults") {
-      dispatch("getTeamResults", getters.selectedRace.Id);
+      dispatch("getTeamResults", getters.selectedRace.id);
     } else if (type === "overallteamresults") {
-      dispatch("getOverallTeamResults", getters.selectedSeason.Id);
+      dispatch("getOverallTeamResults", getters.selectedSeason.id);
     } else if (type === "overallindividualresults") {
       dispatch("getOverallIndividualResults", {
-        seasonId: getters.selectedSeason.Id,
+        seasonId: getters.selectedSeason.id,
         gender: result.gender,
         discipline: result.discipline
       });

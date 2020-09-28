@@ -3,15 +3,14 @@
     <v-row class="text-center" align="center">
       <v-col class="text-center">
         <PageHeading title="Races" origin="seasons" />
-        <div v-for="race in selectedRaces" :key="race.Id">
+        <div v-for="race in selectedRaces" :key="race.id">
           <v-btn
             text
             large
             :block="true"
             :outlined="true"
             @click="raceClicked(race)"
-            >{{ race.Name }}</v-btn
-          >
+          >{{ race.name }}</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -32,6 +31,8 @@ export default {
   },
   methods: {
     raceClicked: function(race) {
+      console.log("races clicked");
+      console.log(race);
       this.setSelectedRace(race);
       this.$router.push("/results");
     },
