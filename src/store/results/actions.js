@@ -5,7 +5,11 @@ import overallTeamResultsService from "../services/overall-team-results-service"
 import overallIndividualResultsService from "../services/overall-individual-results-service";
 
 const actions = {
-  async getIndividualResults(context, { raceId, gender, discipline }) {
+  async getIndividualResults(context, {
+    raceId,
+    gender,
+    discipline
+  }) {
     console.log("action");
     const response = await individualResultsService.getBy(
       raceId,
@@ -13,12 +17,16 @@ const actions = {
       discipline
     );
     const results = response.data;
-    const sortedResults = results.sort((a, b) => (a.Time > b.Time ? 1 : -1));
+    const sortedResults = results.sort((a, b) => (a.time > b.time ? 1 : -1));
 
     context.commit("SET_INDIVIDUAL_RESULTS", sortedResults);
     console.log(sortedResults);
   },
-  async getAgeGroupResults(context, { raceId, gender, discipline }) {
+  async getAgeGroupResults(context, {
+    raceId,
+    gender,
+    discipline
+  }) {
     const response = await ageGroupResultsService.getBy(
       raceId,
       gender,
@@ -43,20 +51,27 @@ const actions = {
   async getOverallTeamResults(context, seasonId) {
     const response = await overallTeamResultsService.getBy(seasonId);
     const results = response.data;
-    const sortedResults = results.sort((a, b) => 
+    const sortedResults = results.sort((a, b) =>
       a.TotalPoints > b.TotalPoints ? -1 : 1);
     context.commit("SET_OVERALL_TEAM_RESULTS", sortedResults);
     console.log(sortedResults);
   },
-  async getOverallIndividualResults(context, { seasonId, gender, discipline }) {
+  async getOverallIndividualResults(context, {
+    seasonId,
+    gender,
+    discipline
+  }) {
     const response = await overallIndividualResultsService.getBy(seasonId, gender, discipline);
     const results = response.data;
-    const sortedResults = results.sort((a, b) => 
+    const sortedResults = results.sort((a, b) =>
       a.TotalPoints > b.TotalPoints ? -1 : 1);
     context.commit("SET_OVERALL_INDIVIDUAL_RESULTS", sortedResults);
     console.log(sortedResults);
   },
-  async getResults({ getters, dispatch }, result) {
+  async getResults({
+    getters,
+    dispatch
+  }, result) {
 
     const type = result.type.toLowerCase();
     if (type === "individualresults") {

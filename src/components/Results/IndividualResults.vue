@@ -13,21 +13,16 @@
         <tbody>
           <tr v-for="result in results" :key="result.RacerId">
             <td>1</td>
-            <td>{{ result.LastName }}, {{ result.FirstName }}</td>
-            <td>{{ result.Time }}</td>
-            <td>{{ result.RacerPoints }}</td>
+            <td>{{ result.lastName }}, {{ result.firstName }}</td>
+            <td>{{ result.time }}</td>
+            <td>{{ result.racerPoints }}</td>
           </tr>
         </tbody>
       </template>
     </v-simple-table>
 
     <div v-if="results.length === 0" class="progress">
-      <v-progress-circular
-        class="progress-spinner"
-        size="64"
-        indeterminate
-        color="primary"
-      ></v-progress-circular>
+      <v-progress-circular class="progress-spinner" size="64" indeterminate color="primary"></v-progress-circular>
     </div>
   </div>
 </template>
