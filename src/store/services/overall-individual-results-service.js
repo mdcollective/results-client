@@ -9,7 +9,7 @@ const api = axios.create({
 export default {
   getBy(seasonId, gender, discipline) {
     return api.get(
-      `https://resultsapiv3.azurewebsites.net/api/seasons/${seasonId}/results/overall/individual?gender=${gender}&discipline=${discipline}`
+      `https://overallindividualresultsapi.azurewebsites.net/api/overallindividualresults?seasonid=${seasonId}&gender=${gender}&discipline=${discipline}`
     );
   }
 };

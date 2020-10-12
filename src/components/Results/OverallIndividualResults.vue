@@ -10,10 +10,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="result in results" :key="result.RacerId">
+          <tr v-for="result in results" :key="result.racerId">
             <td>1</td>
-            <td>{{ result.LastName }}, {{ result.FirstName }}</td>
-            <td>{{ result.TotalPoints }}</td>
+            <td>{{ result.lastName }}, {{ result.firstName }}</td>
+            <td>{{ result.totalPoints }}</td>
           </tr>
         </tbody>
       </template>

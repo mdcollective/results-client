@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <div v-for="ageGroup in results" :key="ageGroup.AgeGroup">
-        <h2>{{ ageGroup.AgeGroup }}</h2>
+      <div v-for="ageGroup in results" :key="ageGroup.ageGroup">
+        <h2>{{ ageGroup.ageGroup }}</h2>
 
         <v-simple-table v-if="results.length > 0" fixed-header>
           <template v-slot:default>
@@ -16,13 +16,13 @@
             </thead>
             <tbody>
               <tr
-                v-for="result in orderedResults(ageGroup.IndividualRacerResult)"
-                :key="result.RacerId"
+                v-for="result in orderedResults(ageGroup.individualResults)"
+                :key="result.racerId"
               >
                 <td>x</td>
-                <td>{{ result.LastName }}, {{ result.FirstName }}</td>
-                <td>{{ result.Time }}</td>
-                <td>{{ result.RacerPoints }}</td>
+                <td>{{ result.lastName }}, {{ result.firstName }}</td>
+                <td>{{ result.time }}</td>
+                <td>{{ result.racerPoints }}</td>
               </tr>
             </tbody>
           </template>
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     orderedResults(results) {
-      return results.sort((a, b) => (a.Time > b.Time ? 1 : -1));
+      return results.sort((a, b) => (a.time > b.time ? 1 : -1));
     }
   }
 };

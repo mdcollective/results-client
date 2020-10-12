@@ -34,7 +34,7 @@ const actions = {
     );
     const results = response.data;
     const sortedResults = results.sort((a, b) =>
-      a.AgeGroup > b.AgeGroup ? 1 : -1
+      a.ageGroup > b.ageGroup ? 1 : -1
     );
     context.commit("SET_AGEGROUP_RESULTS", sortedResults);
     console.log(results);
@@ -43,7 +43,7 @@ const actions = {
     const response = await teamResultsService.getBy(raceId);
     const results = response.data;
     const sortedResults = results.sort((a, b) =>
-      a.TeamPoints > b.TeamPoints ? -1 : 1
+      a.teamPoints > b.teamPoints ? -1 : 1
     );
     context.commit("SET_TEAM_RESULTS", sortedResults);
     console.log(sortedResults);
@@ -52,7 +52,7 @@ const actions = {
     const response = await overallTeamResultsService.getBy(seasonId);
     const results = response.data;
     const sortedResults = results.sort((a, b) =>
-      a.TotalPoints > b.TotalPoints ? -1 : 1);
+      a.totalPoints > b.totalPoints ? -1 : 1);
     context.commit("SET_OVERALL_TEAM_RESULTS", sortedResults);
     console.log(sortedResults);
   },
@@ -64,7 +64,7 @@ const actions = {
     const response = await overallIndividualResultsService.getBy(seasonId, gender, discipline);
     const results = response.data;
     const sortedResults = results.sort((a, b) =>
-      a.TotalPoints > b.TotalPoints ? -1 : 1);
+      a.totalPoints > b.totalPoints ? -1 : 1);
     context.commit("SET_OVERALL_INDIVIDUAL_RESULTS", sortedResults);
     console.log(sortedResults);
   },

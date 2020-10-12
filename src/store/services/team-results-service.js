@@ -9,8 +9,7 @@ const api = axios.create({
 export default {
   getBy(raceId) {
     return api.get(
-      // `http://resultapi.resortdataservices.com/api/races/${raceId}/results/team`
-      `https://resultsapiv3.azurewebsites.net/api/races/${raceId}/results/team`
+      `https://teamresultsapi.azurewebsites.net/api/teamresults?raceid=${raceId}`
     );
   }
 };

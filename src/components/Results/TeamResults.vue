@@ -11,23 +11,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="result in results" :key="result.TeamId">
+          <tr v-for="result in results" :key="result.teamId">
             <td>x</td>
-            <td>{{ result.TeamFullName }} ({{ result.TeamShortName }})</td>
-            <td>{{ result.TotalRacers }}</td>
-            <td>{{ result.TeamPoints }}</td>
+            <td>{{ result.teamFullName }} ({{ result.teamShortName }})</td>
+            <td>{{ result.totalRacers }}</td>
+            <td>{{ result.teamPoints }}</td>
           </tr>
         </tbody>
       </template>
     </v-simple-table>
 
     <div v-if="results.length === 0" class="progress">
-      <v-progress-circular
-        class="progress-spinner"
-        size="64"
-        indeterminate
-        color="primary"
-      ></v-progress-circular>
+      <v-progress-circular class="progress-spinner" size="64" indeterminate color="primary"></v-progress-circular>
     </div>
   </div>
 </template>

@@ -9,8 +9,7 @@ const api = axios.create({
 export default {
   getBy(raceId, gender, discipline) {
     return api.get(
-      // `http://resultapi.resortdataservices.com/api/races/${raceId}/results/individual?gender=${gender}&discipline=${discipline}`
-      `https://resultsapiv3.azurewebsites.net/api/races/${raceId}/results/agegroups?gender=${gender}&discipline=${discipline}`
+      `https://agegroupresultsapi.azurewebsites.net/api/agegroupresults?raceid=${raceId}&gender=${gender}&discipline=${discipline}`
     );
   }
 };
