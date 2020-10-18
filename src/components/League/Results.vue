@@ -12,7 +12,8 @@
               :block="true"
               :outlined="true"
               @click="resultClicked(result)"
-            >{{ result.name }}</v-btn>
+              >{{ result.name }}</v-btn
+            >
           </div>
         </div>
       </v-col>
@@ -38,10 +39,7 @@ export default {
       this.getResults(result);
       this.$router.push("/result");
     },
-    ...mapActions([
-      "getResults",
-      "setSelectedResult"
-    ])
+    ...mapActions(["getResults", "setSelectedResult"])
   }
 };
 </script>
@@ -63,5 +61,11 @@ export default {
   // padding: 0 0 !important;
   margin: 0;
   word-wrap: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
