@@ -13,7 +13,7 @@ import TeamResults from "../Results/TeamResults";
 import OverallTeamResults from "../Results/OverallTeamResults";
 import OverallIndividualResults from "../Results/OverallIndividualResults";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Result",
@@ -25,8 +25,15 @@ export default {
     OverallTeamResults,
     OverallIndividualResults
   },
+  methods: {
+    ...mapActions(["clearResults"])
+  },
   computed: {
     ...mapGetters(["selectedResult"])
+  },
+  beforeRouteLeave(to, from, next) {
+    this.clearResults();
+    next();
   }
 };
 </script>

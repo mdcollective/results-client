@@ -10,8 +10,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="result in results" :key="result.teamId">
-            <td>x</td>
+          <tr v-for="(result, index) in results" :key="result.teamId">
+            <td>{{ index + 1 }}</td>
             <td>{{ result.teamFullName }} ({{ result.teamShortName }})</td>
             <td>{{ result.totalPoints }}</td>
           </tr>

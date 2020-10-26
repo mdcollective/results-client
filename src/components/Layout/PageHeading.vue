@@ -38,18 +38,17 @@ export default {
   props: ["title", "origin"],
   methods: {
     backClicked() {
-      console.log(this.title);
-      console.log(this.origin);
       this.$router.push(this.origin);
     }
   },
-  mounted() {
-    console.log(this.origin);
-  }
 };
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  font-size: 1.125rem;
+}
+
 .page-heading {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;

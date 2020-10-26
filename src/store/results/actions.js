@@ -5,12 +5,19 @@ import overallTeamResultsService from "../services/overall-team-results-service"
 import overallIndividualResultsService from "../services/overall-individual-results-service";
 
 const actions = {
+  async clearResults(context) {
+    context.commit("SET_INDIVIDUAL_RESULTS", []);
+    context.commit("SET_AGEGROUP_RESULTS", []);
+    context.commit("SET_TEAM_RESULTS", []);
+    context.commit("SET_OVERALL_TEAM_RESULTS", []);
+    context.commit("SET_OVERALL_INDIVIDUAL_RESULTS", []);
+    context.commit("SET_OVERALL_TEAM_RESULTS", []);
+  },
   async getIndividualResults(context, {
     raceId,
     gender,
     discipline
   }) {
-    console.log("action");
     const response = await individualResultsService.getBy(
       raceId,
       gender,
@@ -20,7 +27,6 @@ const actions = {
     const sortedResults = results.sort((a, b) => (a.time > b.time ? 1 : -1));
 
     context.commit("SET_INDIVIDUAL_RESULTS", sortedResults);
-    console.log(sortedResults);
   },
   async getAgeGroupResults(context, {
     raceId,
@@ -37,7 +43,6 @@ const actions = {
       a.ageGroup > b.ageGroup ? 1 : -1
     );
     context.commit("SET_AGEGROUP_RESULTS", sortedResults);
-    console.log(results);
   },
   async getTeamResults(context, raceId) {
     const response = await teamResultsService.getBy(raceId);
@@ -46,7 +51,6 @@ const actions = {
       a.teamPoints > b.teamPoints ? -1 : 1
     );
     context.commit("SET_TEAM_RESULTS", sortedResults);
-    console.log(sortedResults);
   },
   async getOverallTeamResults(context, seasonId) {
     const response = await overallTeamResultsService.getBy(seasonId);
@@ -54,7 +58,6 @@ const actions = {
     const sortedResults = results.sort((a, b) =>
       a.totalPoints > b.totalPoints ? -1 : 1);
     context.commit("SET_OVERALL_TEAM_RESULTS", sortedResults);
-    console.log(sortedResults);
   },
   async getOverallIndividualResults(context, {
     seasonId,
@@ -66,7 +69,6 @@ const actions = {
     const sortedResults = results.sort((a, b) =>
       a.totalPoints > b.totalPoints ? -1 : 1);
     context.commit("SET_OVERALL_INDIVIDUAL_RESULTS", sortedResults);
-    console.log(sortedResults);
   },
   async getResults({
     getters,

@@ -5,7 +5,7 @@ const state = {
   overallIndividualResults: [],
   overallTeamResults: [],
   results: [{
-      name: "Men's Alpine - Individual",
+      name: "Men's Alpine",
       type: "IndividualResults",
       category: "individual",
       gender: "m",
@@ -13,7 +13,7 @@ const state = {
       id: "1"
     },
     {
-      name: "Women's Alpine - Age Group",
+      name: "Women's Alpine",
       type: "AgeGroupResults",
       category: "agegroup",
       gender: "f",
@@ -21,7 +21,7 @@ const state = {
       id: "2"
     },
     {
-      name: "Men's Snowboard - Individual",
+      name: "Men's Snowboard",
       type: "IndividualResults",
       category: "individual",
       gender: "m",
@@ -29,7 +29,7 @@ const state = {
       id: "11"
     },
     {
-      name: "Women's Snowboard - Age Group",
+      name: "Women's Snowboard",
       type: "AgeGroupResults",
       category: "agegroup",
       gender: "f",
@@ -37,7 +37,7 @@ const state = {
       id: "22"
     },
     {
-      name: "Men's Tele - Individual",
+      name: "Men's Tele",
       type: "IndividualResults",
       category: "individual",
       gender: "m",
@@ -45,7 +45,7 @@ const state = {
       id: "111"
     },
     {
-      name: "Women's Tele - Age Group",
+      name: "Women's Tele",
       type: "AgeGroupResults",
       category: "agegroup",
       gender: "f",
@@ -61,7 +61,7 @@ const state = {
       id: "3"
     },
     {
-      name: "Men's Alpine - Individual Overall",
+      name: "Men's Alpine",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "m",
@@ -69,7 +69,7 @@ const state = {
       id: "4"
     },
     {
-      name: "Women's Alpine - Individual Overall",
+      name: "Women's Alpine",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "f",
@@ -77,7 +77,7 @@ const state = {
       id: "5"
     },
     {
-      name: "Men's Snowboard - Individual Overall",
+      name: "Men's Snowboard",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "m",
@@ -85,7 +85,7 @@ const state = {
       id: "44"
     },
     {
-      name: "Women's Snowboard - Individual Overall",
+      name: "Women's Snowboard",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "f",
@@ -93,7 +93,7 @@ const state = {
       id: "55"
     },
     {
-      name: "Men's Tele - Individual Overall",
+      name: "Men's Tele",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "m",
@@ -101,7 +101,7 @@ const state = {
       id: "444"
     },
     {
-      name: "Women's Tele - Individual Overall",
+      name: "Women's Tele",
       type: "OverallIndividualResults",
       category: "overall",
       gender: "f",

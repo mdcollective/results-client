@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div v-for="ageGroup in results" :key="ageGroup.ageGroup">
+      <div v-for="ageGroup in results" :key="ageGroup.ageGroup" class="result">
         <h2>{{ ageGroup.ageGroup }}</h2>
 
         <v-simple-table v-if="results.length > 0" fixed-header>
@@ -16,10 +16,10 @@
             </thead>
             <tbody>
               <tr
-                v-for="result in orderedResults(ageGroup.individualResults)"
+                v-for="(result, index) in orderedResults(ageGroup.individualResults)"
                 :key="result.racerId"
               >
-                <td>x</td>
+                <td>{{ index + 1 }}</td>
                 <td>{{ result.lastName }}, {{ result.firstName }}</td>
                 <td>{{ result.time }}</td>
                 <td>{{ result.racerPoints }}</td>
@@ -31,12 +31,7 @@
     </div>
 
     <div v-if="results.length === 0" class="progress">
-      <v-progress-circular
-        class="progress-spinner"
-        size="64"
-        indeterminate
-        color="primary"
-      ></v-progress-circular>
+      <v-progress-circular class="progress-spinner" size="64" indeterminate color="primary"></v-progress-circular>
     </div>
   </div>
 </template>
@@ -58,6 +53,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.result {
+  padding-bottom: 50px;
+}
+
 .progress {
   display: flex;
   align-items: center;
